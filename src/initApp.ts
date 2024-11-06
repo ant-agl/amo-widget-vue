@@ -1,8 +1,9 @@
 import type { WidgetAmo } from "@/types/widget";
+import type { DefineComponent } from "vue";
 import { createApp } from "vue";
 import { store } from "@/store";
 
-export const initApp = (component: any, widget: WidgetAmo) => {
+export const initApp = (component: DefineComponent, widget: WidgetAmo) => {
   const app = createApp(component);
   const isDev = import.meta.env.VITE_WIDGET_MODE == "development";
 
