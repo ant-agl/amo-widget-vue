@@ -11,16 +11,17 @@
   - script.js — Файл входа Амо
 - /src — Основная папка Vue
   - /api — Папка для апи
-    - axiosConfig.js — Конфиг для апи
+    - axiosConfig.ts — Конфиг для апи
   - /assets — Папка с вложениями
   - /components — Папка с компонентами vue
   - /entry — Папка для файлов вхождения vue
   - /store — Папка для хранилища состояний
   - /templates — Папка для twig шаблонов амо
+  - /types — Папка для типов TS. Содежрит типы для амовских переменных
   - /utils — Папка для вспомогательных функций
   - /views — Папка с основными компонентами отображения vue
-  - initApp.js — Функция для инициализации приложений
-  - widget.js — Основной файл виджета
+  - initApp.ts — Функция для инициализации приложений
+  - widget.ts — Основной файл виджета
 - /widget — Папка с файлами, аналогичными текущему архиву
 - .env.development — Файл констант для дева
 - .env.production — Файл констант для прода
@@ -73,7 +74,7 @@ _Структура папок внутри /src может быть любой_
 
 Доступные через inject в компонентах vue
 
-- widget — объект амо с информацией о виджете
+- widget — объект амо с информацией о виджете (Для указания типа использовать `import { WidgetAmo } from "@/types/widget"`)
 - isDev — true/false, дев или прод
 - w_path — путь до папки с виджетом. Если дев, то localhost
 
@@ -106,7 +107,7 @@ const wPath = inject("w_path");
 
 Пример их использования в файле /src/widget.js
 
-```js
+```
 // импорт
 import Modal from "lib/components/base/modal";
 import moment from "moment";
@@ -119,14 +120,13 @@ export default function() {
 
     // Modal
     var data = "<h1>Test</h1><p>Some text</p>";
-    modal = new Modal({
+    cosnt modal = new Modal({
       class_name: "modal-window",
-      init: function($modal_body) {
-        var $this = $(this);
+      init: function($modal_body: any) {
         $modal_body
-          .trigger("modal:loaded") // запускает отображение модального окна
+          .trigger("modal:loaded")
           .html(data)
-          .trigger("modal:centrify") // настраивает модальное окно
+          .trigger("modal:centrify")
           .append("");
       },
       destroy: function() {},
@@ -139,11 +139,19 @@ export default function() {
 }
 ```
 
-Также в файле vite.config.js необходимо добавить библиотеку 
+Также в файле vite.config.ts необходимо добавить библиотеку 
 
 ```
 build.rollupOptions.external: ["lib/components/base/modal", "moment"]
 ```
+
+И в папку @/types добавить файл *.d.ts, описывающий библиотеку. Например, modal.d.ts
+
+```
+declare module "lib/components/base/modal";
+```
+
+
 
 ## Цвета
 
