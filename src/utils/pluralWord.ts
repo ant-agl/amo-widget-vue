@@ -1,7 +1,7 @@
-// count: number
-// words: [string, string, string]
-// return string
-export const getPluralWord = (count, words) => {
+export const getPluralWord = (
+  count: number,
+  words: [string, string, string]
+): string => {
   const ruCardinalRules = new Intl.PluralRules("ru-RU");
 
   switch (ruCardinalRules.select(count)) {

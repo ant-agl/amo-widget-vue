@@ -8,8 +8,7 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       input: {
-        // script: "src/script.js",
-        widget: "src/widget.js",
+        widget: "src/widget.ts",
       },
       output: {
         format: "amd",

@@ -1,0 +1,1 @@
+{"root":["./src/initapp.ts","./src/widget.ts","./src/api/axiosconfig.ts","./src/entry/main.ts","./src/store/countstore.ts","./src/store/index.ts","./src/types/app.d.ts","./src/types/modal.d.ts","./src/types/moment.d.ts","./src/types/vite-env.d.ts","./src/types/widget.d.ts","./src/utils/pluralword.ts","./src/components/counttest.vue","./src/views/app.vue"],"version":"5.6.3"}

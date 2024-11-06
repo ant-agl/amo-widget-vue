@@ -1,6 +1,7 @@
-<script setup>
+<script lang="ts" setup>
 import { inject, onMounted } from "vue";
 import { useCountStore } from "@/store/countStore";
+import type { WidgetAmo } from "@/types/widget";
 
 const countStore = useCountStore();
 
@@ -8,7 +9,7 @@ defineProps({
   msg: String,
 });
 
-const widget = inject("widget");
+const widget: WidgetAmo = inject("widget")!;
 
 onMounted(() => {
   console.log("widget", widget);

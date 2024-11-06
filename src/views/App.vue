@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import CountTest from "@/components/CountTest.vue";
 import { useCountStore } from "@/store/countStore";
 import { inject } from "vue";

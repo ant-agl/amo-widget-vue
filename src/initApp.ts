@@ -1,6 +1,8 @@
+import type { WidgetAmo } from "@/types/widget";
 import { createApp } from "vue";
+import { store } from "@/store";
 
-export const initApp = (component, widget, store = undefined) => {
+export const initApp = (component: any, widget: WidgetAmo) => {
   const app = createApp(component);
   const isDev = import.meta.env.VITE_WIDGET_MODE == "development";
 
@@ -8,7 +10,7 @@ export const initApp = (component, widget, store = undefined) => {
   app.provide("isDev", isDev);
   app.provide("w_path", isDev ? "http://localhost:3000" : widget.params.path);
 
-  if (store) app.use(store);
+  app.use(store);
 
   return app;
 };

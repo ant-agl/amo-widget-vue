@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "vite build --mode production && npm run replace-widget-path",
-    "build-dev": "vite build --mode development && npm run replace-widget-path-dev",
-    "build-watch": "vite build --watch --mode development",
+    "build": "vue-tsc -b && vite build --mode production && npm run replace-widget-path",
+    "build-dev": "vue-tsc -b && vite build --mode development && npm run replace-widget-path-dev",
+    "build-watch": "vue-tsc -b --watch & vite build --watch --mode development",
     "replace-widget-path": "node replaceWidgetPath.js --mode production",
     "replace-widget-path-dev": "node replaceWidgetPath.js --mode development",
     "server": "npx serve dist",
@@ -25,9 +25,12 @@
     "vue": "^3.5.12"
   },
   "devDependencies": {
+    "@types/node": "^22.9.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "dotenv": "^16.4.5",
+    "typescript": "^5.6.3",
     "vite": "^5.4.10",
+    "vue-tsc": "^2.1.10",
     "yargs": "^17.7.2"
   }
 }
