@@ -84,8 +84,7 @@ _Структура папок внутри /src может быть любой_
 
 Пример получения динамического пути
 
-`
-
+```vue
 <script setup>
 import { inject } from "vue";
 const wPath = inject("w_path");
@@ -94,7 +93,7 @@ const wPath = inject("w_path");
 <template>
   <img :src="wPath + '/assets/img/logo.png'" alt="Logo" />
 </template>
-`
+```
 
 ## Сторонние библиотеки
 
@@ -106,16 +105,16 @@ const wPath = inject("w_path");
 
 Пример их использования в файле /src/widget.js
 
-\```
+```js
 // импорт
 import Modal from "lib/components/base/modal";
 import moment from "moment";
 
 export default function() {
-...
-init: function() {
-// moment
-console.log(moment().format("DD-MM-YYYY"));
+  ...
+  init: function() {
+    // moment
+    console.log(moment().format("DD-MM-YYYY"));
 
     // Modal
     var data = "<h1>Test</h1><p>Some text</p>";
@@ -133,13 +132,11 @@ console.log(moment().format("DD-MM-YYYY"));
     });
 
     return true;
-
-},
-...
-return this;
+  },
+  ...
+  return this;
 }
-
-\```
+```
 
 ## Цвета
 
