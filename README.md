@@ -139,6 +139,12 @@ export default function() {
 }
 ```
 
+Также в файле vite.config.js необходимо добавить библиотеку 
+
+```
+build.rollupOptions.external: ["lib/components/base/modal", "moment"]
+```
+
 ## Цвета
 
 В Амо есть переменные для цветов, благодаря которым интерфейс будет хорошо выглдять и в темной, и в светлой теме. [Figma](<https://www.figma.com/design/McUonLMFEayitn5xNqMsqz/amoCRM-Colors-(Public)?node-id=0-1&node-type=canvas&t=XQBxfzN6cE2jGDxT-0>)
