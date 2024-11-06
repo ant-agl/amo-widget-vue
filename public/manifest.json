@@ -1,0 +1,29 @@
+{
+  "widget": {
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "version": "0.0.60",
+    "interface_version": 2,
+    "init_once": false,
+    "locale": [
+      "ru"
+    ],
+    "installation": true
+  },
+  "locations": [
+    "settings",
+    "lcard-1",
+    "cucard-1",
+    "ccard-1",
+    "comcard-1"
+  ],
+  "settings": {
+    "w_settings": {
+      "id": "w_settings",
+      "name": "settings.w_settings",
+      "type": "custom",
+      "required": false
+    }
+  }
+}
