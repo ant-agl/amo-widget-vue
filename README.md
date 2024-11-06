@@ -147,7 +147,7 @@ build.rollupOptions.external: ["lib/components/base/modal", "moment"]
 
 И в папку @/types добавить файл *.d.ts, описывающий библиотеку. Например, modal.d.ts
 
-```
+```ts
 declare module "lib/components/base/modal";
 ```
 
