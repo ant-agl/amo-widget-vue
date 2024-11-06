@@ -107,7 +107,7 @@ const wPath = inject("w_path");
 
 Пример их использования в файле /src/widget.js
 
-```
+```ts
 // импорт
 import Modal from "lib/components/base/modal";
 import moment from "moment";
