@@ -75,7 +75,10 @@ _Структура папок внутри /src может быть любой_
 Доступные через inject в компонентах vue
 
 - widget — объект амо с информацией о виджете 
-  - Для указания типа использовать ```ts import { WidgetAmo } from "@/types/widget"```)
+  ```ts
+    // Для указания типа использовать 
+    import { WidgetAmo } from "@/types/widget"
+  ```
 - isDev — true/false, дев или прод
 - w_path — путь до папки с виджетом. Если дев, то localhost
 
