@@ -119,8 +119,8 @@ export default function() {
     console.log(moment().format("DD-MM-YYYY"));
 
     // Modal
-    var data = "<h1>Test</h1><p>Some text</p>";
-    cosnt modal = new Modal({
+    const data = "<h1>Test</h1><p>Some text</p>";
+    const modal = new Modal({
       class_name: "modal-window",
       init: function($modal_body: any) {
         $modal_body
