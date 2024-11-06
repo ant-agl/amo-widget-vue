@@ -77,7 +77,7 @@ _Структура папок внутри /src может быть любой_
 - widget — объект амо с информацией о виджете 
   ```ts
     // Для указания типа использовать 
-    import { WidgetAmo } from "@/types/widget"
+    import type { WidgetAmo } from "@/types/widget"
   ```
 - isDev — true/false, дев или прод
 - w_path — путь до папки с виджетом. Если дев, то localhost
