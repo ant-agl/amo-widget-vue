@@ -22,7 +22,7 @@ dotenv.config({
 // Читаем значение переменной окружения VITE_WIDGET_PATH
 const port = process.env.VITE_PORT;
 
-if (!port) {
+if (!port && mode == "development") {
   console.error("VITE_PORT не задан в .env файле");
   process.exit(1);
 }
