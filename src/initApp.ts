@@ -6,7 +6,9 @@ import { store } from "@/store";
 export const initApp = (component: DefineComponent, widget: WidgetAmo) => {
   const app = createApp(component);
   const isDev = import.meta.env.VITE_WIDGET_MODE == "development";
-  const wPath = isDev ? import.meta.env.VITE_BASE_PATH : widget.params.path;
+
+  const devPath = `http://localhost:${import.meta.env.VITE_PORT}`;
+  const wPath = isDev ? devPath : widget.params.path;
 
   app.provide("widget", widget);
   app.provide("isDev", isDev);

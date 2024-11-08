@@ -20,12 +20,14 @@ dotenv.config({
 });
 
 // Читаем значение переменной окружения VITE_WIDGET_PATH
-const widgetPath = process.env.VITE_BASE_PATH;
+const port = process.env.VITE_PORT;
 
-if (!widgetPath) {
-  console.error("VITE_WIDGET_PATH не задан в .env файле");
+if (!port) {
+  console.error("VITE_PORT не задан в .env файле");
   process.exit(1);
 }
+
+const widgetPath = port ? `http://localhost:${port}` : ".";
 
 // Путь к файлу script.js
 const scriptPath = path.resolve(__dirname, "dist", "script.js");
