@@ -1,10 +1,12 @@
 import fs from "fs";
+import { fileURLToPath } from "url";
 import path from "path";
 import dotenv from "dotenv";
 import yargs from "yargs";
 
 // Получаем путь к текущей директории с использованием import.meta.url
-const __filename = new URL(import.meta.url).pathname;
+// const __filename = new URL(import.meta.url).pathname;
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Парсим аргументы командной строки
@@ -19,7 +21,7 @@ dotenv.config({
 });
 
 // Читаем значение переменной окружения VITE_WIDGET_PATH
-const widgetPath = process.env.VITE_WIDGET_PATH;
+const widgetPath = process.env.VITE_BASE_PATH;
 
 if (!widgetPath) {
   console.error("VITE_WIDGET_PATH не задан в .env файле");
@@ -36,8 +38,8 @@ fs.readFile(scriptPath, "utf8", (err, data) => {
     return;
   }
 
-  // Заменяем все вхождения {{WIDGET_PATH}} на import.meta.env.VITE_WIDGET_PATH
-  const updatedData = data.replace(/{{WIDGET_PATH}}/g, widgetPath);
+  // Заменяем все вхождения {{BASE_PATH}} на widgetPath
+  const updatedData = data.replace(/{{BASE_PATH}}/g, widgetPath);
 
   // Записываем обновленное содержимое обратно в файл
   fs.writeFile(scriptPath, updatedData, "utf8", (err) => {

@@ -9,7 +9,7 @@
     "build-watch": "vue-tsc -b --watch & vite build --watch --mode development",
     "replace-widget-path": "node replaceWidgetPath.js --mode production",
     "replace-widget-path-dev": "node replaceWidgetPath.js --mode development",
-    "server": "npx serve dist",
+    "server": "npx serve dist -p ${PORT:-3000}",
     "dev": "npm run build-watch & npm run server",
     "bump-version": "node bumpVersion.js",
     "cp-widget": "rm -rf widget && cp -r dist widget",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "@types/node": "^22.9.0",
     "@vitejs/plugin-vue": "^5.1.4",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "typescript": "^5.6.3",
     "vite": "^5.4.10",

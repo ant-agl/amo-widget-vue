@@ -6,10 +6,11 @@ import { store } from "@/store";
 export const initApp = (component: DefineComponent, widget: WidgetAmo) => {
   const app = createApp(component);
   const isDev = import.meta.env.VITE_WIDGET_MODE == "development";
+  const wPath = isDev ? import.meta.env.VITE_BASE_PATH : widget.params.path;
 
   app.provide("widget", widget);
   app.provide("isDev", isDev);
-  app.provide("w_path", isDev ? "http://localhost:3000" : widget.params.path);
+  app.provide("w_path", wPath);
 
   app.use(store);
 
