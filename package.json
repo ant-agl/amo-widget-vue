@@ -12,7 +12,7 @@
     "server": "npx serve dist -p ${PORT:-3000}",
     "dev": "npm run build-watch & npm run server",
     "bump-version": "node bumpVersion.js",
-    "cp-widget": "del -rf widget && cp -r dist widget",
+    "cp-widget": "del -rf widget && cpx 'dist/**/*.*' widget",
     "zip": "cd dist && zip -r ../widget.zip *",
     "zip-widget": "npm run cp-widget && npm run zip",
     "widget": "npm run bump-version && npm run build && npm run zip-widget",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "@types/node": "^22.9.0",
     "@vitejs/plugin-vue": "^5.1.4",
+    "cpx": "^1.5.0",
     "cross-env": "^7.0.3",
     "del-cli": "^6.0.0",
     "dotenv": "^16.4.5",
