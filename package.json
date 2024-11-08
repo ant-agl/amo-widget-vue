@@ -9,11 +9,11 @@
     "build-watch": "vue-tsc -b --watch & vite build --watch --mode development",
     "replace-widget-path": "node replaceWidgetPath.js --mode production",
     "replace-widget-path-dev": "node replaceWidgetPath.js --mode development",
-    "server": "npx serve dist -p $npm_config_port",
+    "server": "npx serve dist -p",
     "dev": "npm run build-watch & npm run server",
     "bump-version": "node bumpVersion.js",
     "cp-widget": "del -rf widget && cpx 'dist/**/*.*' widget",
-    "zip": "cd dist && zip -r ../widget.zip *",
+    "zip": "node zip.js",
     "zip-widget": "npm run cp-widget && npm run zip",
     "widget": "npm run bump-version && npm run build && npm run zip-widget",
     "widget-dev": "npm run bump-version && npm run build-dev && npm run zip-widget && npm run dev"
@@ -27,6 +27,7 @@
   "devDependencies": {
     "@types/node": "^22.9.0",
     "@vitejs/plugin-vue": "^5.1.4",
+    "adm-zip": "^0.5.16",
     "cpx": "^1.5.0",
     "cross-env": "^7.0.3",
     "del-cli": "^6.0.0",
