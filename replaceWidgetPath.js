@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 import yargs from "yargs";
 
 // Получаем путь к текущей директории с использованием import.meta.url
-// const __filename = new URL(import.meta.url).pathname;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
