@@ -12,7 +12,7 @@
     "server": "node run-server.js",
     "dev": "npm-run-all --parallel build-watch server",
     "bump-version": "node bumpVersion.js",
-    "cp-widget": "del -rf widget && cpx2 'dist/**/*.*' widget",
+    "cp-widget": "del -rf widget && cpx 'dist/**/*.*' widget",
     "zip": "node run-zip.js",
     "zip-widget": "npm-run-all cp-widget zip",
     "widget": "npm-run-all bump-version build zip-widget",
